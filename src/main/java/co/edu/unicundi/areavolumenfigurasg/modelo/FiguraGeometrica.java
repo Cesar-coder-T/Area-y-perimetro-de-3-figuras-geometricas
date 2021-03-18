@@ -11,4 +11,8 @@ package co.edu.unicundi.areavolumenfigurasg.modelo;
  */
 public class FiguraGeometrica {
     
+    double area;
+    double perimetro;
+    double volumen;
+    
 }

@@ -5,10 +5,34 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
+import java.util.Scanner;
+
 /**
  *
- * @author cesar
+ * @author Diego Cobos
  */
 public class Cuadrado extends FiguraGeometrica{
+
     
+    double lados;
+    
+    Scanner consola = new Scanner(System.in);
+    public Cuadrado() {
+    }
+    
+    public void Datos(){
+        
+        System.out.println("Ingrese un lado del cuadrado en centimetros:");
+        lados = consola.nextDouble();
+    }
+    
+    public void areaCuadrado(){
+        super.area=Math.pow(this.lados, 2);
+        System.out.println("Area del caudadrado es: " + super.area + " cm");
+    }
+    
+    public void perimetroCadrado(){
+        super.perimetro=4*lados;
+        System.err.println("Perimetro del cuadrado es: "+ super.perimetro + " cm");
+    }
 }
