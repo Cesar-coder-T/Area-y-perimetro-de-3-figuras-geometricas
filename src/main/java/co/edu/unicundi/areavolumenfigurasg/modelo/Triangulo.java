@@ -11,4 +11,29 @@ package co.edu.unicundi.areavolumenfigurasg.modelo;
  */
 public class Triangulo extends FiguraGeometrica{
     
+    double base;
+    double haltura;
+    double ladoA;
+    double ladoB;
+    double ladoC;
+
+    public Triangulo(double base, double haltura, double ladoA, double ladoB, double ladoC) {
+        
+        this.base = base;
+        this.haltura = haltura;
+        this.ladoA = ladoA;
+        this.ladoB = ladoB;
+        this.ladoC = ladoC;
+    }
+    
+    @Override
+    public double calcularArea() {
+        return (base*haltura)/2;
+    }
+
+    @Override
+    public double calcularPerimetro() {
+        return ladoA+ladoB+ladoC;
+    }
+    
 }

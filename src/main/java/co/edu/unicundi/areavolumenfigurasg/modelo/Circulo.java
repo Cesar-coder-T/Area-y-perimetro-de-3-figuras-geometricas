@@ -13,24 +13,22 @@ import java.util.Scanner;
  */
 public class Circulo extends FiguraGeometrica{
 
-    double raiz;
+    double radio;
     
-    Scanner consola = new Scanner(System.in);
+ 
     public Circulo() {
     }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI*Math.pow(radio, 2);
+    }
+
+    @Override
+    public double calcularPerimetro() {
+        return 2*Math.PI*radio;
     
-    public void Dato(){
-        System.err.println("Ingrese el radio del circulo");
-        raiz = consola.nextDouble();
     }
     
-    public void areaCircu(){
-        area = Math.PI *Math.pow(raiz, 2);
-        System.out.println("El area del circulo es: " + area );
-    }
     
-    public void perimetroCirculo(){
-        perimetro = 2*Math.PI*raiz;
-        System.out.println("El perimetro del circulo es: " + perimetro);
-    } 
 }

@@ -14,25 +14,18 @@ import java.util.Scanner;
 public class Cuadrado extends FiguraGeometrica{
 
     
-    double lados;
+    double ladosCuadrado;
     
-    Scanner consola = new Scanner(System.in);
     public Cuadrado() {
     }
-    
-    public void Datos(){
-        
-        System.out.println("Ingrese un lado del cuadrado en centimetros:");
-        lados = consola.nextDouble();
+  
+    @Override
+    public double calcularArea() {
+        return Math.pow(ladosCuadrado, 2);
     }
-    
-    public void areaCuadrado(){
-        super.area=Math.pow(this.lados, 2);
-        System.out.println("Area del caudadrado es: " + super.area + " cm");
-    }
-    
-    public void perimetroCadrado(){
-        super.perimetro=4*lados;
-        System.err.println("Perimetro del cuadrado es: "+ super.perimetro + " cm");
+
+    @Override
+    public double calcularPerimetro() {
+         return 4*ladosCuadrado;
     }
 }
