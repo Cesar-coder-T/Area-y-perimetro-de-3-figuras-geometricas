@@ -6,27 +6,55 @@
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
 /**
- *
- * @author cesar
+ * Esta clase se encarga de heredar su comportamiento a las 
+ * demás clases (Circulo, cuadrado, rectángulo y triángulo).
+ * @author César Téllez
+ * @author Diego Cobos
+ * @since 1.0
+ * @version 1.2.15
+ * 
  */
 public abstract class FiguraGeometrica{
-    
+    /**
+     * Almacena el valor del area correspondiente a la figura geométrica.
+     */
     private double area;
+    
+    /**
+     * Almacena el valor del perímetro correspondiente a la figura geométrica.
+     */
     private double perimetro;
     
+    /**
+     * Constructor genérico de la clase.
+     */
     public FiguraGeometrica() {
         
     }
 
+    /**
+     * Contructor que recibe parámetros de la clase padre (Sobrecarga).
+     * @param area
+     * @param perimetro 
+     */
     public FiguraGeometrica(double area, double perimetro) {
         this.area = area;
         this.perimetro = perimetro;
     }
     
+    /**
+     * Método abstracto previsto para calcular el área en cada figura.
+     * @return 
+     */
     public abstract double calcularArea();
+    /**
+     * Método abstracto previsto para calcular el perímetro en cada figura.
+     * @return 
+     */
     public abstract double calcularPerimetro();
     
     /**
+     * Método get del atributo area.
      * @return the area
      */
     public double getArea() {
@@ -34,6 +62,7 @@ public abstract class FiguraGeometrica{
     }
 
     /**
+     * Método set del atributo area.
      * @param area the area to set
      */
     public void setArea(double area) {
@@ -41,6 +70,7 @@ public abstract class FiguraGeometrica{
     }
 
     /**
+     * Método get del atributo perimetro.
      * @return the perimetro
      */
     public double getPerimetro() {
@@ -48,11 +78,10 @@ public abstract class FiguraGeometrica{
     }
 
     /**
+     * Método set del atributo perimetro.
      * @param perimetro the perimetro to set
      */
     public void setPerimetro(double perimetro) {
         this.perimetro = perimetro;
     }
-    
-    
 }

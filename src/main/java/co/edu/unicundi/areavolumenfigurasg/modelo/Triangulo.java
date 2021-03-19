@@ -6,66 +6,79 @@
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
 /**
- *
- * @author cesar
+ * Esta clase contiene los cálculos (área y perímetro) correspondientes al triángulo.
+ * @author César Téllez
+ * @author Diego Cobos
+ * @since 1.0
+ * @version 1.2.15
+ * 
  */
 public class Triangulo extends FiguraGeometrica{
     
-    private double base;
-    private double altura;
+    /**
+     * Almacena el valor del lado a (Triángulo).
+     */
     private double ladoA;
+    
+    /**
+     * Almacena el valor del lado b (Triángulo).
+     */
     private double ladoB;
+    
+    /**
+     * Almacena el valor del lado c (Triángulo).
+     */
     private double ladoC;
+    
+    /**
+     * Almacena el valor de la altura (Triángulo).
+     */
+    private double altura;
 
-    public Triangulo(double base, double altura, double ladoA, double ladoB, double ladoC) {
-        this.base = base;
-        this.altura = altura;
+    /**
+     * Constructor genérico de la clase.
+     */
+    public Triangulo() {
+        
+    }
+    
+    /**
+     * Constructor (Sobrecarga).
+     * @param ladoA
+     * @param ladoB
+     * @param ladoC
+     * @param altura 
+     */
+    public Triangulo(double ladoA, double ladoB, double ladoC, double altura) {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
         this.ladoC = ladoC;
+        this.altura = altura;
     }
     
+    /**
+     * Método encargado de calcular el área del triángulo.
+     * @return el área
+     */
     @Override
     public double calcularArea() {
-        super.setArea((getBase()*getAltura())/2);
+        
+        super.setArea((ladoB*altura)/2);
         return super.getArea();
     }
 
+    /**
+     * Método encargado de calcular el perímetro del triángulo.
+     * @return el perímetro
+     */
     @Override
     public double calcularPerimetro() {
-        super.setPerimetro(getLadoA()+getLadoB()+getLadoC());
+        super.setPerimetro(ladoA+ladoB+ladoC);
         return super.getPerimetro();
     }
 
     /**
-     * @return the base
-     */
-    public double getBase() {
-        return base;
-    }
-
-    /**
-     * @param base the base to set
-     */
-    public void setBase(double base) {
-        this.base = base;
-    }
-
-    /**
-     * @return the altura
-     */
-    public double getAltura() {
-        return altura;
-    }
-
-    /**
-     * @param altura the altura to set
-     */
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
-    /**
+     * Método get del atributo ladoA.
      * @return the ladoA
      */
     public double getLadoA() {
@@ -73,6 +86,7 @@ public class Triangulo extends FiguraGeometrica{
     }
 
     /**
+     * Método set del atributo ladoA.
      * @param ladoA the ladoA to set
      */
     public void setLadoA(double ladoA) {
@@ -80,6 +94,7 @@ public class Triangulo extends FiguraGeometrica{
     }
 
     /**
+     * Método get del atributo ladoB.
      * @return the ladoB
      */
     public double getLadoB() {
@@ -87,6 +102,7 @@ public class Triangulo extends FiguraGeometrica{
     }
 
     /**
+     * Método set del atributo ladoB.
      * @param ladoB the ladoB to set
      */
     public void setLadoB(double ladoB) {
@@ -94,6 +110,7 @@ public class Triangulo extends FiguraGeometrica{
     }
 
     /**
+     * Método get del atributo ladoC.
      * @return the ladoC
      */
     public double getLadoC() {
@@ -101,11 +118,29 @@ public class Triangulo extends FiguraGeometrica{
     }
 
     /**
+     * Método set del atributo ladoC.
      * @param ladoC the ladoC to set
      */
     public void setLadoC(double ladoC) {
         this.ladoC = ladoC;
     }
+
+    /**
+     * Método get del atributo altura.
+     * @return the altura
+     */
+    public double getAltura() {
+        return altura;
+    }
+
+    /**
+     * Método set del atributo altura.
+     * @param altura the altura to set
+     */
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+    
     
     
 }

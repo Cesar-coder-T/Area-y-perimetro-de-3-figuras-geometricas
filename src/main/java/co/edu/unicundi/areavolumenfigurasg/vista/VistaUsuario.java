@@ -13,11 +13,18 @@ import co.edu.unicundi.areavolumenfigurasg.modelo.Triangulo;
 import java.util.Scanner;
 
 /**
- *
- * @author cesar
+ * Esta clase se encarga de interactuar con el usuario.
+ * @author César Téllez
+ * @author Diego Cobos
+ * @since 1.0
+ * @version 1.2.15
+ * 
  */
 public class VistaUsuario implements IMenu{
     
+    /**
+     * Método que muestra el menú de opciones al usuario.
+     */
     public void mostrarMenu(){
         Scanner console = new Scanner(System.in);
         byte opcionDo;
@@ -28,34 +35,38 @@ public class VistaUsuario implements IMenu{
             opcionSwitch = console.nextByte();
             switch(opcionSwitch){
                 case 1:
-                    System.out.println("Circulo");
-                    Circulo circulo = new Circulo(8);
+                    System.out.println("Circulo\nDigite el radio:");
+                    Circulo circulo = new Circulo(console.nextDouble());
                     imprimir(circulo.calcularArea(),circulo.calcularPerimetro());
                     break;
                 case 2:
-                    System.out.println("Cuadrado");
-                    Cuadrado cuadrado = new Cuadrado(5);
+                    System.out.println("Cuadrado\nDigite uno de los lados:");
+                    Cuadrado cuadrado = new Cuadrado(console.nextDouble());
                     imprimir(cuadrado.calcularArea(),cuadrado.calcularPerimetro());
                     break;
                 case 3:
-                    System.out.println("Rectángulo");
-                    Rectangulo rectangulo = new Rectangulo(2, 5);
+                    System.out.println("Rectángulo\nDigite la base y la altura:");
+                    Rectangulo rectangulo = new Rectangulo(console.nextDouble(),console.nextDouble());
                     imprimir(rectangulo.calcularArea(),rectangulo.calcularPerimetro());
                     break;
                 case 4:
-                    System.out.println("Triángulo");
-                    Triangulo triangulo = new Triangulo(1,2,3,4,5);
+                    System.out.println("Triángulo\nDigite el lado A, B, C y la altura:");
+                    Triangulo triangulo = new Triangulo(console.nextDouble(), console.nextDouble(), console.nextDouble(), console.nextDouble());
                     imprimir(triangulo.calcularArea(),triangulo.calcularPerimetro());
                     break;
             }
             System.out.println("¿Desea escoger otra figura? (1.Si/2.No)");
             opcionDo = console.nextByte();
-        }while(opcionDo==1);
+        }while(opcionDo == 1);
     }
 
+    /**
+     * Método implementado de la interface "IMenu" que imprime el área y perímetro.
+     * @param area
+     * @param perimetro 
+     */
     @Override
     public void imprimir(double area, double perimetro) {
         System.out.println("Área: "+area+"\nPerímetro: "+perimetro);
     }
-
 }
