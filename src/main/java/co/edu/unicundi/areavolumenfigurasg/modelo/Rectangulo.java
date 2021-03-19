@@ -11,23 +11,53 @@ package co.edu.unicundi.areavolumenfigurasg.modelo;
  */
 public class Rectangulo extends FiguraGeometrica{
 
-    double base;
-    double haltura;
+    private double base;
+    private double altura;
 
-    public Rectangulo(double base, double haltura) {
+    public Rectangulo(double base, double altura) {
         this.base = base;
-        this.haltura = haltura;
+        this.altura = altura;
     }
     
     @Override
     public double calcularArea() {
-        return base*haltura;
+        return getBase()*getAltura();
     }
 
     @Override
     public double calcularPerimetro() {
-        return 2*(base*haltura);
+        super.setArea(2*(getBase()+getAltura()));
+        return super.getArea();
+    }
+
+    /**
+     * @return the base
+     */
+    public double getBase() {
+        return base;
+    }
+
+    /**
+     * @param base the base to set
+     */
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    /**
+     * @return the haltura
+     */
+    public double getAltura() {
+        return altura;
+    }
+
+    /**
+     * @param altura the altura to set
+     */
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 
  
+    
 }

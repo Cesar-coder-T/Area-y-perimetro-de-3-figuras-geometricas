@@ -5,16 +5,17 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.controlador;
 
-import co.edu.unicundi.areavolumenfigurasg.modelo.Circulo;
-import co.edu.unicundi.areavolumenfigurasg.modelo.Cuadrado;
+import co.edu.unicundi.areavolumenfigurasg.vista.VistaUsuario;
 
 /**
  *
  * @author cesar
  */
 public class Principal {
+    
     public static void main(String[] args) {
-        
-                
+        VistaUsuario vista = new VistaUsuario();
+        vista.mostrarMenu();
     }
+    
 }

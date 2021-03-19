@@ -5,30 +5,45 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
-import java.util.Scanner;
-
 /**
  *
  * @author cesar
  */
 public class Circulo extends FiguraGeometrica{
 
-    double radio;
-    
- 
-    public Circulo() {
-    }
+    private double radio;
 
+    public Circulo(double radio) {
+        this.radio = radio;
+    }
+    
     @Override
     public double calcularArea() {
-        return Math.PI*Math.pow(radio, 2);
+        super.setArea(Math.PI*Math.pow(getRadio(), 2));
+        return super.getArea();
     }
 
     @Override
     public double calcularPerimetro() {
-        return 2*Math.PI*radio;
+        super.setPerimetro(2*Math.PI*getRadio());
+        return super.getPerimetro();
     
     }
+
+    /**
+     * @return the radio
+     */
+    public double getRadio() {
+        return radio;
+    }
+
+    /**
+     * @param radio the radio to set
+     */
+    public void setRadio(double radio) {
+        this.radio = radio;
+    }
+    
     
     
 }

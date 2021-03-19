@@ -5,27 +5,43 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Diego Cobos
  */
 public class Cuadrado extends FiguraGeometrica{
 
-    
-    double ladosCuadrado;
-    
-    public Cuadrado() {
+    private double valorLado;
+
+    public Cuadrado(double valorLado) {
+        this.valorLado = valorLado;
     }
-  
+
     @Override
-    public double calcularArea() {
-        return Math.pow(ladosCuadrado, 2);
+    public double calcularArea(){
+        super.setArea(Math.pow(getValorLado(), 2));
+        return super.getArea();
     }
 
     @Override
     public double calcularPerimetro() {
-         return 4*ladosCuadrado;
+        super.setPerimetro(4*getValorLado());
+        return super.getPerimetro();
     }
+
+    /**
+     * @return the valorLado
+     */
+    public double getValorLado() {
+        return valorLado;
+    }
+
+    /**
+     * @param valorLado the valorLado to set
+     */
+    public void setValorLado(double valorLado) {
+        this.valorLado = valorLado;
+    }
+    
+    
 }

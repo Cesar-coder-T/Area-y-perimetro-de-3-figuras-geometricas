@@ -13,9 +13,14 @@ public abstract class FiguraGeometrica{
     
     private double area;
     private double perimetro;
-
-    public FiguraGeometrica(){
+    
+    public FiguraGeometrica() {
         
+    }
+
+    public FiguraGeometrica(double area, double perimetro) {
+        this.area = area;
+        this.perimetro = perimetro;
     }
     
     public abstract double calcularArea();
