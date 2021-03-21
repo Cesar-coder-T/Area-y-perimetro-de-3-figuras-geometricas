@@ -32,7 +32,6 @@ public class Rectangulo extends FiguraGeometrica{
      * Constructor generico de la clase.
      */
     public Rectangulo() {
-        
     }
     
     /**
@@ -66,9 +65,14 @@ public class Rectangulo extends FiguraGeometrica{
         super.setPerimetro(2*(base+altura));
         return super.getPerimetro();
     }
-
+    
+    /**
+     * Metodo encatgado de calcular la diagonal del rectangulo      
+     * @return la diagonal 
+     */
     public double CalcularDiagonal(){
-        return 
+        this.setDiagonal(Math.sqrt(Math.pow(altura, 2)+Math.pow(base, 2)));
+        return this.getDiagonal();
     }
     /**
      * Método get del atributo base.
