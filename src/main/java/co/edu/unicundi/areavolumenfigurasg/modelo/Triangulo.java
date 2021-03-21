@@ -47,13 +47,13 @@ public class Triangulo extends FiguraGeometrica{
      * @param ladoA
      * @param ladoB
      * @param ladoC
-     * @param altura 
+     * @param TipoDeFigura 
      */
-    public Triangulo(double ladoA, double ladoB, double ladoC, double altura) {
+    public Triangulo(double ladoA, double ladoB, double ladoC, String TipoDeFigura) {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
         this.ladoC = ladoC;
-        this.altura = altura;
+        super.setTipoDeFigura(TipoDeFigura);
     }
     
     /**
@@ -62,7 +62,7 @@ public class Triangulo extends FiguraGeometrica{
      */
     @Override
     public double calcularArea() {
-        
+        CalcularAltura();
         super.setArea((ladoB*altura)/2);
         return super.getArea();
     }
@@ -76,7 +76,30 @@ public class Triangulo extends FiguraGeometrica{
         super.setPerimetro(ladoA+ladoB+ladoC);
         return super.getPerimetro();
     }
+    
+    
+    /**
+     * Metodo encargado de calcular la altura segun el tipo de triangulo
+     * @return 
+     */
+    public double CalcularAltura(){
+        if (ladoA == ladoB && ladoB == ladoC){
+            this.altura= (Math.sqrt(3)*ladoA)/2;
+        }else if (ladoA == ladoB || ladoA == ladoC || ladoB == ladoC ){
+                if (ladoA == ladoB) {
+                this.altura = Math.sqrt((Math.pow(ladoA, 2)-(Math.pow(ladoC, 2)/4)));      
+            } else if (ladoA == ladoC) {
+                this.altura = Math.sqrt((Math.pow(ladoA, 2)-(Math.pow(ladoB, 2)/4)));     
+            } else {
+                this.altura = Math.sqrt((Math.pow(ladoB, 2)-(Math.pow(ladoA, 2)/4))); 
+            }
+        } else {
+            this.altura= (ladoA*ladoB)/ladoC;
+        }
+        return this.altura;
+    }
 
+    
     /**
      * Método get del atributo ladoA.
      * @return the ladoA
@@ -140,6 +163,7 @@ public class Triangulo extends FiguraGeometrica{
     public void setAltura(double altura) {
         this.altura = altura;
     }
+
     
     
     

@@ -22,4 +22,5 @@ public interface IMenu {
      */
     public void imprimir(double area, double perimetro);
     
+    
 }

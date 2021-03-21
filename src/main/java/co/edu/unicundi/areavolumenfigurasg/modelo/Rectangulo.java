@@ -23,6 +23,10 @@ public class Rectangulo extends FiguraGeometrica{
      * Almacena la altura del rectángulo.
      */
     private double altura;
+    /**
+     * Almacena la la diagonal del rectángulo.
+     */
+    private double diagonal;
 
     /**
      * Constructor generico de la clase.
@@ -35,10 +39,12 @@ public class Rectangulo extends FiguraGeometrica{
      * Constructor (Sobrecarga).
      * @param base
      * @param altura 
+     * @param TipoDeFigura
      */
-    public Rectangulo(double base, double altura) {
+    public Rectangulo(double base, double altura, String TipoDeFigura) {
         this.base = base;
         this.altura = altura;
+        super.setTipoDeFigura(TipoDeFigura);
     }
     
     /**
@@ -61,6 +67,9 @@ public class Rectangulo extends FiguraGeometrica{
         return super.getPerimetro();
     }
 
+    public double CalcularDiagonal(){
+        return 
+    }
     /**
      * Método get del atributo base.
      * @return the base
@@ -92,4 +101,19 @@ public class Rectangulo extends FiguraGeometrica{
     public void setAltura(double altura) {
         this.altura = altura;
     }
+
+    /**
+     * @return the diagonal
+     */
+    public double getDiagonal() {
+        return diagonal;
+    }
+
+    /**
+     * @param diagonal the diagonal to set
+     */
+    public void setDiagonal(double diagonal) {
+        this.diagonal = diagonal;
+    }
+ 
 }

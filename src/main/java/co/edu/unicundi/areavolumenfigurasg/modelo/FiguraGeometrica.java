@@ -14,7 +14,7 @@ package co.edu.unicundi.areavolumenfigurasg.modelo;
  * @version 1.2.15
  * 
  */
-public abstract class FiguraGeometrica{
+public abstract class FiguraGeometrica {
     /**
      * Almacena el valor del area correspondiente a la figura geométrica.
      */
@@ -24,6 +24,11 @@ public abstract class FiguraGeometrica{
      * Almacena el valor del perímetro correspondiente a la figura geométrica.
      */
     private double perimetro;
+    
+    /**
+     * Almacena el tipo de la figura
+     */
+    private String tipoDeFigura;
     
     /**
      * Constructor genérico de la clase.
@@ -52,6 +57,7 @@ public abstract class FiguraGeometrica{
      * @return 
      */
     public abstract double calcularPerimetro();
+    
     
     /**
      * Método get del atributo area.
@@ -83,5 +89,19 @@ public abstract class FiguraGeometrica{
      */
     public void setPerimetro(double perimetro) {
         this.perimetro = perimetro;
+    }
+
+    /**
+     * @return the tipoDeFigura
+     */
+    public String getTipoDeFigura() {
+        return tipoDeFigura;
+    }
+
+    /**
+     * @param tipoDeFigura the tipoDeFigura to set
+     */
+    public void setTipoDeFigura(String tipoDeFigura) {
+        this.tipoDeFigura = tipoDeFigura;
     }
 }

@@ -19,6 +19,7 @@ public class Circulo extends FiguraGeometrica{
      * Almacena el radio del circulo.
      */
     private double radio;
+    private double diametro;
 
     /**
      * Constructor genérico de la clase.
@@ -30,9 +31,16 @@ public class Circulo extends FiguraGeometrica{
     /**
      * Constructor (Sobrecarga).
      * @param radio 
+     * @param TipoDeFigura
      */
-    public Circulo(double radio) {
+    public Circulo(double radio, String TipoDeFigura) {
         this.radio = radio;
+        super.setTipoDeFigura(TipoDeFigura);
+    }
+    
+    public double CalcularDiametro(){
+        this.diametro=2*this.radio;
+        return this.diametro;
     }
     
     /**
@@ -41,8 +49,8 @@ public class Circulo extends FiguraGeometrica{
      */
     @Override
     public double calcularArea() {
-        super.setArea(Math.PI*Math.pow(radio, 2));
-        return super.getArea();
+        setArea(Math.PI*Math.pow(radio, 2));
+        return getArea();
     }
 
     /**
@@ -55,6 +63,7 @@ public class Circulo extends FiguraGeometrica{
         return super.getPerimetro();
     
     }
+    
 
     /**
      * Método get del atributo radio.
@@ -71,5 +80,7 @@ public class Circulo extends FiguraGeometrica{
     public void setRadio(double radio) {
         this.radio = radio;
     }
+
+    
     
 }

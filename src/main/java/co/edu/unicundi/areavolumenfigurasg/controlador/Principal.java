@@ -5,6 +5,7 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.controlador;
 
+import co.edu.unicundi.areavolumenfigurasg.modelo.Triangulo;
 import co.edu.unicundi.areavolumenfigurasg.vista.VistaUsuario;
 
 /**
@@ -22,8 +23,9 @@ public class Principal {
     * @param args[] es un arreglo con los parámetros que el reciba por consola
     */
     public static void main(String[] args) {
-        VistaUsuario vista = new VistaUsuario();
-        vista.mostrarMenu();
+       VistaUsuario vista = new VistaUsuario();
+       vista.mostrarMenu();
+        
     }
     
 }
