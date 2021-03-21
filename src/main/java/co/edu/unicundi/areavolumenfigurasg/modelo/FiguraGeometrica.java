@@ -41,10 +41,12 @@ public abstract class FiguraGeometrica {
      * Contructor que recibe parámetros de la clase padre (Sobrecarga).
      * @param area
      * @param perimetro 
+     * @param tipoDeFigura
      */
-    public FiguraGeometrica(double area, double perimetro) {
+    public FiguraGeometrica(double area, double perimetro, String tipoDeFigura) {
         this.area = area;
         this.perimetro = perimetro;
+        this.tipoDeFigura = tipoDeFigura;
     }
     
     /**
@@ -92,6 +94,7 @@ public abstract class FiguraGeometrica {
     }
 
     /**
+     * Método get del atributo tipoDeFigura
      * @return the tipoDeFigura
      */
     public String getTipoDeFigura() {
@@ -99,6 +102,7 @@ public abstract class FiguraGeometrica {
     }
 
     /**
+     * Método set del atributo tipoDeFigura
      * @param tipoDeFigura the tipoDeFigura to set
      */
     public void setTipoDeFigura(String tipoDeFigura) {

@@ -19,17 +19,19 @@ public class Rectangulo extends FiguraGeometrica{
      * Almacena la base del rectángulo.
      */
     private double base;
+    
     /**
      * Almacena la altura del rectángulo.
      */
     private double altura;
+    
     /**
-     * Almacena la la diagonal del rectángulo.
+     * Almacena la diagonal del rectángulo.
      */
     private double diagonal;
 
     /**
-     * Constructor generico de la clase.
+     * Constructor genérico de la clase.
      */
     public Rectangulo() {
     }
@@ -38,12 +40,12 @@ public class Rectangulo extends FiguraGeometrica{
      * Constructor (Sobrecarga).
      * @param base
      * @param altura 
-     * @param TipoDeFigura
+     * @param tipoDeFigura
      */
-    public Rectangulo(double base, double altura, String TipoDeFigura) {
+    public Rectangulo(double base, double altura, String tipoDeFigura) {
         this.base = base;
         this.altura = altura;
-        super.setTipoDeFigura(TipoDeFigura);
+        super.setTipoDeFigura(tipoDeFigura);
     }
     
     /**
@@ -67,10 +69,10 @@ public class Rectangulo extends FiguraGeometrica{
     }
     
     /**
-     * Metodo encatgado de calcular la diagonal del rectangulo      
+     * Método encargado de calcular la diagonal del rectángulo      
      * @return la diagonal 
      */
-    public double CalcularDiagonal(){
+    public double calcularDiagonal(){
         this.setDiagonal(Math.sqrt(Math.pow(altura, 2)+Math.pow(base, 2)));
         return this.getDiagonal();
     }
@@ -107,6 +109,7 @@ public class Rectangulo extends FiguraGeometrica{
     }
 
     /**
+     * Método get del atributo diagonal.
      * @return the diagonal
      */
     public double getDiagonal() {
@@ -114,6 +117,7 @@ public class Rectangulo extends FiguraGeometrica{
     }
 
     /**
+     * Método set del atributo diagonal.
      * @param diagonal the diagonal to set
      */
     public void setDiagonal(double diagonal) {

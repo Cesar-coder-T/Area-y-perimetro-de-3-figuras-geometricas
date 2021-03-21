@@ -47,13 +47,13 @@ public class Triangulo extends FiguraGeometrica{
      * @param ladoA
      * @param ladoB
      * @param ladoC
-     * @param TipoDeFigura 
+     * @param tipoDeFigura 
      */
-    public Triangulo(double ladoA, double ladoB, double ladoC, String TipoDeFigura) {
+    public Triangulo(double ladoA, double ladoB, double ladoC, String tipoDeFigura) {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
         this.ladoC = ladoC;
-        super.setTipoDeFigura(TipoDeFigura);
+        super.setTipoDeFigura(tipoDeFigura);
     }
     
     /**
@@ -62,7 +62,7 @@ public class Triangulo extends FiguraGeometrica{
      */
     @Override
     public double calcularArea() {
-        CalcularAltura();
+        calcularAltura();
         super.setArea((ladoB*altura)/2);
         return super.getArea();
     }
@@ -77,12 +77,11 @@ public class Triangulo extends FiguraGeometrica{
         return super.getPerimetro();
     }
     
-    
     /**
-     * Metodo encargado de calcular la altura segun el tipo de triangulo
-     * @return 
+     * Método encargado de calcular la altura según el tipo de triángulo
+     * @return la altura del triángulo
      */
-    public double CalcularAltura(){
+    public double calcularAltura(){
         if (ladoA == ladoB && ladoB == ladoC){
             this.altura= (Math.sqrt(3)*ladoA)/2;
         }else if (ladoA == ladoB || ladoA == ladoC || ladoB == ladoC ){

@@ -19,13 +19,14 @@ public class Cuadrado extends FiguraGeometrica{
      * Almacena el valor de uno de los lados del cuadrado.
      */
     private double valorLado;
+    
     /**
      * Almacena el valor de la diagonal del cuadrado.
      */
     private double diagonal;
 
     /**
-     * Constructor generico de la clase.
+     * Constructor genérico de la clase.
      */
     public Cuadrado() {
     }
@@ -41,10 +42,10 @@ public class Cuadrado extends FiguraGeometrica{
     }
     
     /**
-     * Metodo encargado de calcular la diagonal del cuadrado
+     * Método encargado de calcular la diagonal del cuadrado
      * @return la diagonal
      */
-    public double CalcularDiagonal(){
+    public double calcularDiagonal(){
         this.setDiagonal(this.valorLado* Math.sqrt(2));
         return this.getDiagonal();
     }
@@ -88,6 +89,7 @@ public class Cuadrado extends FiguraGeometrica{
     }
 
     /**
+     * Método get del atributo diagonal.
      * @return the diagonal
      */
     public double getDiagonal() {
@@ -95,6 +97,7 @@ public class Cuadrado extends FiguraGeometrica{
     }
 
     /**
+     * Método set del atributo diagonal.
      * @param diagonal the diagonal to set
      */
     public void setDiagonal(double diagonal) {
