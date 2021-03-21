@@ -66,15 +66,14 @@ public class Triangulo extends FiguraGeometrica{
      */
     @Override
     public String calcularArea() {
-        super.setArea(this.ladoB*this.altura/2);
+        calcularAltura();
+        super.setArea((this.ladoB*this.altura)/2);
         if(super.getArea() % 2 == 0){
             int numCast;
             numCast = (int)super.getArea();
-            //return ""+numCast;
-            return ""+super.getArea();
+            return ""+numCast;
         }else{
-            //return decimal.format(super.getArea());
-            return ""+super.getArea();
+            return decimal.format(super.getArea());
         }
     }
 
