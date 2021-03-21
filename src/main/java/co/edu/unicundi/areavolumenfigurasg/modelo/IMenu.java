@@ -20,7 +20,7 @@ public interface IMenu {
      * @param area
      * @param perimetro 
      */
-    public void imprimir(double area, double perimetro);
+    public void imprimir(String area, String perimetro);
     
     
 }

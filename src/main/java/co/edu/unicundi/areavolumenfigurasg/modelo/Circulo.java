@@ -5,6 +5,8 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
+import java.text.DecimalFormat;
+
 /**
  * Esta clase contiene los cálculos (área y perímetro) correspondientes al círculo.
  * @author César Téllez
@@ -24,6 +26,8 @@ public class Circulo extends FiguraGeometrica{
      * Almacena el diámetro del circulo.
      */
     private double diametro;
+    
+    DecimalFormat decimal = new DecimalFormat(".##");
 
     /**
      * Constructor genérico de la clase.
@@ -37,18 +41,24 @@ public class Circulo extends FiguraGeometrica{
      * @param radio 
      * @param tipoDeFigura
      */
-    public Circulo(double radio, String tipoDeFigura) {
-        this.radio = radio;
+    public Circulo(String tipoDeFigura, double radio) {
         super.setTipoDeFigura(tipoDeFigura);
+        this.radio = radio;
     }
     
     /**
      *  Método encargado de calcular el diámetro del circulo. 
      * @return el diametro
      */
-    public double calcularDiametro(){
-        this.diametro = Math.round(2*this.radio);
-        return this.diametro;
+    public String calcularDiametro(){
+        this.diametro = 2*this.radio;
+        if(this.diametro % 2 == 0){
+            int numCast;
+            numCast = (int)this.diametro;
+            return ""+numCast;
+        }else{
+            return decimal.format(this.diametro);
+        }
     }
     
     /**
@@ -56,9 +66,15 @@ public class Circulo extends FiguraGeometrica{
      * @return el área
      */
     @Override
-    public double calcularArea() {
-        setArea(Math.round(Math.PI*Math.pow(radio, 2)));
-        return getArea();
+    public String calcularArea() {
+        super.setArea(Math.PI*Math.pow(this.radio, 2));
+        if(super.getArea() % 2 == 0){
+            int numCast;
+            numCast = (int)super.getArea();
+            return ""+numCast;
+        }else{
+            return decimal.format(super.getArea()); 
+        }
     }
 
     /**
@@ -66,10 +82,15 @@ public class Circulo extends FiguraGeometrica{
      * @return el perímetro
      */
     @Override
-    public double calcularPerimetro() {
-        super.setPerimetro(Math.round(2*Math.PI*radio));
-        return super.getPerimetro();
-    
+    public String calcularPerimetro() {
+        super.setPerimetro(Math.round(2*Math.PI*this.radio));
+        if(super.getPerimetro() % 2 == 0){
+            int numCast;
+            numCast = (int)super.getPerimetro();
+            return ""+numCast;
+        }else{
+            return decimal.format(super.getPerimetro());
+        }
     }
     
     /**

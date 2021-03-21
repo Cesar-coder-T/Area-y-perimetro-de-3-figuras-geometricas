@@ -53,12 +53,12 @@ public abstract class FiguraGeometrica {
      * Método abstracto previsto para calcular el área en cada figura.
      * @return 
      */
-    public abstract double calcularArea();
+    public abstract String calcularArea();
     /**
      * Método abstracto previsto para calcular el perímetro en cada figura.
      * @return 
      */
-    public abstract double calcularPerimetro();
+    public abstract String calcularPerimetro();
     
     
     /**

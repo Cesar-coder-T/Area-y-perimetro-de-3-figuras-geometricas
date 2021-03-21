@@ -66,22 +66,22 @@ public class VistaUsuario implements IMenu{
         switch(opcion){
            case 1:
                System.out.println("Circulo\nDigite el radio:");
-                figura= new Circulo(console.nextDouble(), "Círculo");
+                figura= new Circulo("Círculo", console.nextDouble());
                 imprimir(figura.calcularArea(),figura.calcularPerimetro());
                 break;
            case 2:
                System.out.println("Cuadrado\nDigite uno de los lados:");
-                figura = new Cuadrado(console.nextDouble(), "Cuadrado");
+                figura = new Cuadrado("Cuadrado", console.nextDouble());
                 imprimir(figura.calcularArea(),figura.calcularPerimetro());
                 break;
            case 3:
                System.out.println("Rectángulo\nDigite la base y la altura:");
-               figura = new Rectangulo(console.nextDouble(),console.nextDouble(), "Rectángulo");
+               figura = new Rectangulo("Rectángulo", console.nextDouble(),console.nextDouble());
                imprimir(figura.calcularArea(),figura.calcularPerimetro());
                break;
             case 4:
                 System.out.println("Triángulo\nDigite el lado A, B y C:");
-                figura = new Triangulo(console.nextDouble(), console.nextDouble(), console.nextDouble() , "Triángulo");
+                figura = new Triangulo("Triángulo", console.nextDouble(), console.nextDouble(), console.nextDouble());
                 imprimir(figura.calcularArea(),figura.calcularPerimetro());
                 break;
         }
@@ -115,7 +115,7 @@ public class VistaUsuario implements IMenu{
      * @param perimetro 
      */
     @Override
-    public void imprimir(double area, double perimetro) {
+    public void imprimir(String area, String perimetro) {
         System.out.println("Área: "+area+"\nPerímetro: "+perimetro);
     }
 }

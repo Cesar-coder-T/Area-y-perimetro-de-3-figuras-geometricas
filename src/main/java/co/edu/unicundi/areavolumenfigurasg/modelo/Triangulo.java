@@ -5,6 +5,8 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
+import java.text.DecimalFormat;
+
 /**
  * Esta clase contiene los cálculos (área y perímetro) correspondientes al triángulo.
  * @author César Téllez
@@ -34,6 +36,8 @@ public class Triangulo extends FiguraGeometrica{
      * Almacena el valor de la altura (Triángulo).
      */
     private double altura;
+    
+    DecimalFormat decimal = new DecimalFormat(".##");
 
     /**
      * Constructor genérico de la clase.
@@ -49,11 +53,11 @@ public class Triangulo extends FiguraGeometrica{
      * @param ladoC
      * @param tipoDeFigura 
      */
-    public Triangulo(double ladoA, double ladoB, double ladoC, String tipoDeFigura) {
+    public Triangulo(String tipoDeFigura, double ladoA, double ladoB, double ladoC) {
+        super.setTipoDeFigura(tipoDeFigura);
         this.ladoA = ladoA;
         this.ladoB = ladoB;
         this.ladoC = ladoC;
-        super.setTipoDeFigura(tipoDeFigura);
     }
     
     /**
@@ -61,10 +65,17 @@ public class Triangulo extends FiguraGeometrica{
      * @return el área
      */
     @Override
-    public double calcularArea() {
-        calcularAltura();
-        super.setArea((ladoB*altura)/2);
-        return super.getArea();
+    public String calcularArea() {
+        super.setArea(this.ladoB*this.altura/2);
+        if(super.getArea() % 2 == 0){
+            int numCast;
+            numCast = (int)super.getArea();
+            //return ""+numCast;
+            return ""+super.getArea();
+        }else{
+            //return decimal.format(super.getArea());
+            return ""+super.getArea();
+        }
     }
 
     /**
@@ -72,30 +83,43 @@ public class Triangulo extends FiguraGeometrica{
      * @return el perímetro
      */
     @Override
-    public double calcularPerimetro() {
-        super.setPerimetro(ladoA+ladoB+ladoC);
-        return super.getPerimetro();
+    public String calcularPerimetro() {
+        super.setPerimetro(this.ladoA+this.ladoB+this.ladoC);
+        if(super.getPerimetro() % 2 == 0){
+            int numCast;
+            numCast = (int)super.getPerimetro();
+            return ""+numCast;
+        }else{
+            return decimal.format(super.getPerimetro());
+        }
     }
     
     /**
      * Método encargado de calcular la altura según el tipo de triángulo
      * @return la altura del triángulo
      */
-    public double calcularAltura(){
-        if (ladoA == ladoB && ladoB == ladoC){
-            this.altura= (Math.sqrt(3)*ladoA)/2;
-        }else if (ladoA == ladoB || ladoA == ladoC || ladoB == ladoC ){
-                if (ladoA == ladoB) {
-                this.altura = Math.sqrt((Math.pow(ladoA, 2)-(Math.pow(ladoC, 2)/4)));      
-            } else if (ladoA == ladoC) {
-                this.altura = Math.sqrt((Math.pow(ladoA, 2)-(Math.pow(ladoB, 2)/4)));     
+    public String calcularAltura(){
+        if (this.ladoA == this.ladoB && this.ladoB == this.ladoC){
+            this.altura = (Math.sqrt(3)*this.ladoA)/2;
+        }else if (this.ladoA == this.ladoB || this.ladoA == this.ladoC || this.ladoB == this.ladoC ){
+                if (this.ladoA == this.ladoB) {
+                this.altura = Math.sqrt((Math.pow(this.ladoA, 2)-(Math.pow(this.ladoC, 2)/4)));      
+            } else if (this.ladoA == this.ladoC) {
+                this.altura = Math.sqrt((Math.pow(this.ladoA, 2)-(Math.pow(this.ladoB, 2)/4)));     
             } else {
-                this.altura = Math.sqrt((Math.pow(ladoB, 2)-(Math.pow(ladoA, 2)/4))); 
+                this.altura = Math.sqrt((Math.pow(this.ladoB, 2)-(Math.pow(this.ladoA, 2)/4))); 
             }
         } else {
-            this.altura= (ladoA*ladoB)/ladoC;
+            this.altura = (this.ladoA*this.ladoB)/this.ladoC;
         }
-        return this.altura;
+        
+        if(this.altura % 2 == 0){
+            int numCast;
+            numCast = (int)this.altura;
+            return ""+numCast;
+        }else{
+            return decimal.format(this.altura);
+        }
     }
 
     

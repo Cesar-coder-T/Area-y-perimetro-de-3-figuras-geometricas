@@ -5,6 +5,8 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
+import java.text.DecimalFormat;
+
 /**
  * Esta clase contiene los cálculos (área y perímetro) correspondientes al rectángulo.
  * @author César Téllez
@@ -29,6 +31,8 @@ public class Rectangulo extends FiguraGeometrica{
      * Almacena la diagonal del rectángulo.
      */
     private double diagonal;
+    
+    DecimalFormat decimal = new DecimalFormat(".##");
 
     /**
      * Constructor genérico de la clase.
@@ -42,10 +46,10 @@ public class Rectangulo extends FiguraGeometrica{
      * @param altura 
      * @param tipoDeFigura
      */
-    public Rectangulo(double base, double altura, String tipoDeFigura) {
+    public Rectangulo(String tipoDeFigura, double base, double altura) {
+        super.setTipoDeFigura(tipoDeFigura);
         this.base = base;
         this.altura = altura;
-        super.setTipoDeFigura(tipoDeFigura);
     }
     
     /**
@@ -53,9 +57,15 @@ public class Rectangulo extends FiguraGeometrica{
      * @return el área
      */
     @Override
-    public double calcularArea() {
-        super.setArea(base*altura);
-        return super.getArea();
+    public String calcularArea() {
+        super.setArea(this.base*this.altura);
+        if(super.getArea() % 2 == 0){
+            int numCast;
+            numCast = (int)super.getArea();
+            return ""+numCast;
+        }else{
+            return decimal.format(super.getArea());
+        }
     }
 
     /**
@@ -63,18 +73,30 @@ public class Rectangulo extends FiguraGeometrica{
      * @return el perímetro
      */
     @Override
-    public double calcularPerimetro() {
-        super.setPerimetro(2*(base+altura));
-        return super.getPerimetro();
+    public String calcularPerimetro() {
+        super.setPerimetro(2*(this.base+this.altura));
+        if(super.getPerimetro()% 2 == 0){
+            int numCast;
+            numCast = (int)super.getPerimetro();
+            return ""+numCast;
+        }else{
+            return decimal.format(super.getPerimetro());
+        }
     }
     
     /**
      * Método encargado de calcular la diagonal del rectángulo      
      * @return la diagonal 
      */
-    public double calcularDiagonal(){
-        this.setDiagonal(Math.sqrt(Math.pow(altura, 2)+Math.pow(base, 2)));
-        return this.getDiagonal();
+    public String calcularDiagonal(){
+        this.diagonal = Math.sqrt(Math.pow(this.altura, 2)+Math.pow(this.base, 2));
+        if(this.diagonal % 2 == 0){
+            int numCast;
+            numCast = (int)this.diagonal;
+            return ""+numCast;
+        }else{
+            return decimal.format(this.diagonal);
+        }
     }
     /**
      * Método get del atributo base.

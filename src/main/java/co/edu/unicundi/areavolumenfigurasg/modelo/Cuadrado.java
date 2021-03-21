@@ -5,6 +5,8 @@
  */
 package co.edu.unicundi.areavolumenfigurasg.modelo;
 
+import java.text.DecimalFormat;
+
 /**
  * Esta clase contiene los cálculos (área y perímetro) correspondientes al cuadrado.
  * @author César Téllez
@@ -24,6 +26,8 @@ public class Cuadrado extends FiguraGeometrica{
      * Almacena el valor de la diagonal del cuadrado.
      */
     private double diagonal;
+    
+    DecimalFormat decimal = new DecimalFormat(".##");
 
     /**
      * Constructor genérico de la clase.
@@ -36,18 +40,24 @@ public class Cuadrado extends FiguraGeometrica{
      * @param valorLado 
      *  @param TipoDeFigura
      */
-    public Cuadrado(double valorLado, String TipoDeFigura) {
-        this.valorLado = valorLado;
+    public Cuadrado(String TipoDeFigura, double valorLado) {
         super.setTipoDeFigura(TipoDeFigura);
+        this.valorLado = valorLado;
     }
     
     /**
      * Método encargado de calcular la diagonal del cuadrado
      * @return la diagonal
      */
-    public double calcularDiagonal(){
-        this.setDiagonal(this.valorLado* Math.sqrt(2));
-        return this.getDiagonal();
+    public String calcularDiagonal(){
+        this.diagonal = this.valorLado* Math.sqrt(2);
+        if(this.diagonal % 2 == 0){
+            int numCast;
+            numCast = (int)this.diagonal;
+            return ""+numCast;
+        }else{
+            return decimal.format(this.diagonal);
+        }
     }
 
     /**
@@ -55,9 +65,15 @@ public class Cuadrado extends FiguraGeometrica{
      * @return el área
      */
     @Override
-    public double calcularArea(){
-        super.setArea(Math.pow(valorLado, 2));
-        return super.getArea();
+    public String calcularArea(){
+        super.setArea(Math.pow(this.valorLado, 2));
+        if(super.getArea() % 2 == 0){
+            int numCast;
+            numCast = (int)super.getArea();
+            return ""+numCast;
+        }else{
+            return decimal.format(super.getArea());
+        }
     }
 
     /**
@@ -65,12 +81,16 @@ public class Cuadrado extends FiguraGeometrica{
      * @return el perímetro
      */
     @Override
-    public double calcularPerimetro() {
-        super.setPerimetro(4*valorLado);
-        return super.getPerimetro();
+    public String calcularPerimetro() {
+        super.setPerimetro(4*this.valorLado);
+        if(super.getPerimetro() % 2 == 0){
+            int numCast;
+            numCast = (int)super.getPerimetro();
+            return ""+numCast;
+        }else{
+            return decimal.format(super.getPerimetro());
+        }
     }
-    
-
 
     /**
      * Método get del atributo valorLado.
