@@ -18,7 +18,7 @@ import java.util.Scanner;
  * @author César Téllez
  * @author Diego Cobos
  * @since 1.0
- * @version 1.3.9
+ * @version 1.3.15
  * 
  */
 public class VistaUsuario implements IMenu{
