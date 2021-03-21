@@ -12,7 +12,7 @@ import co.edu.unicundi.areavolumenfigurasg.vista.VistaUsuario;
  * @author César Téllez
  * @author Diego Cobos
  * @since 1.0
- * @version 1.2.15
+ * @version 1.3.15
  * 
  */
 public class Principal {
@@ -22,8 +22,9 @@ public class Principal {
     * @param args[] es un arreglo con los parámetros que el reciba por consola
     */
     public static void main(String[] args) {
-        VistaUsuario vista = new VistaUsuario();
-        vista.mostrarMenu();
+       VistaUsuario vista = new VistaUsuario();
+       vista.mostrarBienvenida();
+        
     }
     
 }

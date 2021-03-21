@@ -7,6 +7,7 @@ package co.edu.unicundi.areavolumenfigurasg.vista;
 
 import co.edu.unicundi.areavolumenfigurasg.modelo.Circulo;
 import co.edu.unicundi.areavolumenfigurasg.modelo.Cuadrado;
+import co.edu.unicundi.areavolumenfigurasg.modelo.FiguraGeometrica;
 import co.edu.unicundi.areavolumenfigurasg.modelo.IMenu;
 import co.edu.unicundi.areavolumenfigurasg.modelo.Rectangulo;
 import co.edu.unicundi.areavolumenfigurasg.modelo.Triangulo;
@@ -17,47 +18,95 @@ import java.util.Scanner;
  * @author César Téllez
  * @author Diego Cobos
  * @since 1.0
- * @version 1.2.15
+ * @version 1.3.15
  * 
  */
 public class VistaUsuario implements IMenu{
     
     /**
-     * Método que muestra el menú de opciones al usuario.
+     * claase de encargada de giardarlos datos del usuario
      */
-    public void mostrarMenu(){
-        Scanner console = new Scanner(System.in);
-        byte opcionDo;
+    Scanner console = new Scanner(System.in);
+    
+    /**
+     * Vector que se encargado de guardar los objetos
+     */
+    FiguraGeometrica[] vector ;
+    
+    /**
+     * Método que donde guardamos los objetos en un vector y muestra el menu.
+     */
+    public void mostrarBienvenida(){
+        byte contador = 0;
+        byte opcionDo ;
         byte opcionSwitch;
-        System.out.println("¡¡¡Bienvenido!!!\nEn este programa se podrá calcular el area y perímetro de las cuatro figuras geométricas principales\n(Circulo, cuadrado, rectángulo y triángulo).");
+        
+        System.out.println("¡¡¡Bienvenido!!!\nEn este programa se podrá calcular el área y perímetro de las cuatro figuras geométricas principales\n(Circulo, cuadrado, rectángulo y triángulo)."
+                + "\n\nNota: Recuerde, la unidad de medida que contempla este programa es cm.\n\nIngrese el número de figuras que desea desarrollar: ");
+        
+        opcionDo = console.nextByte();
+        vector = new FiguraGeometrica[opcionDo];
         do{
             System.out.println("\nElija la figura:\n1.Circulo\n2.Cuadrado\n3.Rectángulo\n4.Triángulo");
             opcionSwitch = console.nextByte();
-            switch(opcionSwitch){
-                case 1:
-                    System.out.println("Circulo\nDigite el radio:");
-                    Circulo circulo = new Circulo(console.nextDouble());
-                    imprimir(circulo.calcularArea(),circulo.calcularPerimetro());
-                    break;
-                case 2:
-                    System.out.println("Cuadrado\nDigite uno de los lados:");
-                    Cuadrado cuadrado = new Cuadrado(console.nextDouble());
-                    imprimir(cuadrado.calcularArea(),cuadrado.calcularPerimetro());
-                    break;
-                case 3:
-                    System.out.println("Rectángulo\nDigite la base y la altura:");
-                    Rectangulo rectangulo = new Rectangulo(console.nextDouble(),console.nextDouble());
-                    imprimir(rectangulo.calcularArea(),rectangulo.calcularPerimetro());
-                    break;
-                case 4:
-                    System.out.println("Triángulo\nDigite el lado A, B, C y la altura:");
-                    Triangulo triangulo = new Triangulo(console.nextDouble(), console.nextDouble(), console.nextDouble(), console.nextDouble());
-                    imprimir(triangulo.calcularArea(),triangulo.calcularPerimetro());
-                    break;
+            vector[contador] = mostrarMenu(opcionSwitch);
+            contador++;
+        }while(opcionDo > contador);
+        imprimerVector();
+    }
+    
+    /**
+     * Método que crea el objeto y retorna y lo ternorna.
+     * @param opcion
+     * @return el nombre de la figura geométrica
+     */
+    public FiguraGeometrica mostrarMenu(byte opcion){
+        
+        FiguraGeometrica figura = null;
+        switch(opcion){
+           case 1:
+               System.out.println("Circulo\nDigite el radio:");
+                figura= new Circulo("Círculo", console.nextDouble());
+                imprimir(figura.calcularArea(),figura.calcularPerimetro());
+                break;
+           case 2:
+               System.out.println("Cuadrado\nDigite uno de los lados:");
+                figura = new Cuadrado("Cuadrado", console.nextDouble());
+                imprimir(figura.calcularArea(),figura.calcularPerimetro());
+                break;
+           case 3:
+               System.out.println("Rectángulo\nDigite la base y la altura:");
+               figura = new Rectangulo("Rectángulo", console.nextDouble(),console.nextDouble());
+               imprimir(figura.calcularArea(),figura.calcularPerimetro());
+               break;
+            case 4:
+                System.out.println("Triángulo\nDigite el lado A, B y C:");
+                figura = new Triangulo("Triángulo", console.nextDouble(), console.nextDouble(), console.nextDouble());
+                imprimir(figura.calcularArea(),figura.calcularPerimetro());
+                break;
+        }
+        return figura;
+    }
+    
+    /**
+     * Método encargado de imprimir el vector con las características de cada clase.
+     */
+    public void imprimerVector(){
+        byte contador = 1;
+        for(FiguraGeometrica figura: vector){
+            System.out.println("----------------------------------\nFigura "+ contador + ": " + figura.getTipoDeFigura() +"\n\t\tÁrea: " + figura.calcularArea() + " cm^2");
+            System.out.println("\t\tPerímetro: " + figura.calcularPerimetro() + " cm");
+            if (figura instanceof Cuadrado){
+                System.out.println("\t\tDiagonal: "  + ((Cuadrado)figura).calcularDiagonal() + " cm" + "\n----------------------------------");
+            }else if (figura instanceof Circulo) {
+                System.out.println("\t\tDiámetro: " + ((Circulo)figura).calcularDiametro() + " cm^2" + "\n----------------------------------");
+            } else if (figura instanceof Triangulo) {
+                System.out.println("\t\tAltura: " + ((Triangulo)figura).calcularAltura() + " cm^2" + "\n----------------------------------");
+            } else if (figura instanceof Rectangulo){
+                System.out.println("\t\tDiagonal: " + ((Rectangulo)figura).calcularDiagonal() + " cm" + "\n----------------------------------");
             }
-            System.out.println("¿Desea escoger otra figura? (1.Si/2.No)");
-            opcionDo = console.nextByte();
-        }while(opcionDo == 1);
+            contador++;
+        }
     }
 
     /**
@@ -66,7 +115,7 @@ public class VistaUsuario implements IMenu{
      * @param perimetro 
      */
     @Override
-    public void imprimir(double area, double perimetro) {
+    public void imprimir(String area, String perimetro) {
         System.out.println("Área: "+area+"\nPerímetro: "+perimetro);
     }
 }

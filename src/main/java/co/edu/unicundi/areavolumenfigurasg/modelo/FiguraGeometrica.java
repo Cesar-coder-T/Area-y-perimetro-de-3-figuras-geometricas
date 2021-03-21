@@ -11,10 +11,10 @@ package co.edu.unicundi.areavolumenfigurasg.modelo;
  * @author César Téllez
  * @author Diego Cobos
  * @since 1.0
- * @version 1.2.15
+ * @version 1.3.15
  * 
  */
-public abstract class FiguraGeometrica{
+public abstract class FiguraGeometrica {
     /**
      * Almacena el valor del area correspondiente a la figura geométrica.
      */
@@ -24,6 +24,11 @@ public abstract class FiguraGeometrica{
      * Almacena el valor del perímetro correspondiente a la figura geométrica.
      */
     private double perimetro;
+    
+    /**
+     * Almacena el tipo de la figura
+     */
+    private String tipoDeFigura;
     
     /**
      * Constructor genérico de la clase.
@@ -36,22 +41,25 @@ public abstract class FiguraGeometrica{
      * Contructor que recibe parámetros de la clase padre (Sobrecarga).
      * @param area
      * @param perimetro 
+     * @param tipoDeFigura
      */
-    public FiguraGeometrica(double area, double perimetro) {
+    public FiguraGeometrica(double area, double perimetro, String tipoDeFigura) {
         this.area = area;
         this.perimetro = perimetro;
+        this.tipoDeFigura = tipoDeFigura;
     }
     
     /**
      * Método abstracto previsto para calcular el área en cada figura.
      * @return 
      */
-    public abstract double calcularArea();
+    public abstract String calcularArea();
     /**
      * Método abstracto previsto para calcular el perímetro en cada figura.
      * @return 
      */
-    public abstract double calcularPerimetro();
+    public abstract String calcularPerimetro();
+    
     
     /**
      * Método get del atributo area.
@@ -83,5 +91,21 @@ public abstract class FiguraGeometrica{
      */
     public void setPerimetro(double perimetro) {
         this.perimetro = perimetro;
+    }
+
+    /**
+     * Método get del atributo tipoDeFigura
+     * @return the tipoDeFigura
+     */
+    public String getTipoDeFigura() {
+        return tipoDeFigura;
+    }
+
+    /**
+     * Método set del atributo tipoDeFigura
+     * @param tipoDeFigura the tipoDeFigura to set
+     */
+    public void setTipoDeFigura(String tipoDeFigura) {
+        this.tipoDeFigura = tipoDeFigura;
     }
 }
